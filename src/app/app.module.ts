@@ -7,16 +7,21 @@ import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DataViewModule } from 'primeng/dataview';
+import { HeaderComponent } from './header/header.component';
+import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
-    declarations: [AppComponent, ProductsComponent],
+    declarations: [AppComponent, ProductsComponent, HeaderComponent],
     imports: [
         BrowserModule, 
         BrowserAnimationsModule,
         DataViewModule,
         FormsModule,
         ButtonModule,
-        HttpClientModule
+        HttpClientModule,
+        MenuModule,
+        MenubarModule
         ],
     bootstrap: [AppComponent]
 })

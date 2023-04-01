@@ -20,33 +20,16 @@ export class ProductsComponent implements OnInit{
 
   myName:string = 'a';
 
+  categories: string[] = []
+
   constructor(private httpService: HttpService) { }
-
-
 
   ngOnInit(): void {
     this.httpService.getProductList().subscribe(data => {
       this.products = data['products'];
       console.log(this.products);
     })
+
   }
-
-  
-
-
-
-  /*products: Product[] = [
-    {
-      title: 'prvi',
-      price: 4.55,
-      brand: 'Apple'
-    },
-    {
-      title: 'drugi',
-      price: 5.44,
-      brand: 'Pear'
-    }
-  ]*/
-
 
 }

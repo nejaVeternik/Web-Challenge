@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ProductsComponent } from './products/products.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @Component({
@@ -6,4 +8,8 @@ import { Component } from "@angular/core";
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+    showHomePage = true;
+    showAboutPage = false;
+    showContactPage = false;
+}
