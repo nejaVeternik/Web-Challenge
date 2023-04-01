@@ -6,7 +6,7 @@ import { ProductsComponent } from './products/products.component';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { DataViewModule } from "primeng/dataview";
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
     declarations: [AppComponent, ProductsComponent],

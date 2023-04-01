@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../services/http.service'
-import { ProductsService } from '../services/products.service'
-import { DataViewModule, DataViewLayoutOptions } from 'primeng/dataview';
+import { HttpService } from '../services/http.service';
 
 interface Product {
   title: string;
