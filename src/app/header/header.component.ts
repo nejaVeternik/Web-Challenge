@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -9,9 +9,13 @@ import { MenuItem } from 'primeng/api';
 export class HeaderComponent implements OnInit{
 
   categories: MenuItem[] = []
+  showingProducts: boolean = false;
+
+  @Output() showing = new EventEmitter<string>();
 
   ngOnInit(): void {
 
+    //List of menu categories 
     this.categories = [
       {
         label: "Products",
@@ -30,14 +34,16 @@ export class HeaderComponent implements OnInit{
       }
     ]
   }
-  showCarts(): string {
-    return "carts";
+
+  //Outputing values of clicked menu buttons 
+  showCarts(): void {
+    this.showing.emit("carts");
   }
-  showUsers(): string {
-    return "users";
+  showUsers(): void {
+    this.showing.emit("users");
   }
-  showProducts(): string {
-    return "products";
+  showProducts(): void {
+    this.showing.emit("products");
   }
 
 }
