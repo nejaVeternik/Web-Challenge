@@ -20,23 +20,26 @@ export class HeaderComponent implements OnInit{
       {
         label: "Products",
         icon: 'pi pi-tag',
-        command: () => this.showProducts()
+        routerLink: '/products',
+        //command: () => this.showProducts()
       },
       {
         label: "Users",
         icon: 'pi pi-user',
-        command: () => this.showUsers()
+        routerLink: '/users',
+        //command: () => this.showUsers()
       },
       {
-        label: "Carts",
+        label: "Cart",
         icon: 'pi pi-shopping-cart',
-        command: () => this.showCarts()
+        routerLink: '/carts',
+        //command: () => this.showCarts()
       }
     ]
   }
 
   //Outputing values of clicked menu buttons 
-  showCarts(): void {
+  /*showCarts(): void {
     this.showing.emit("carts");
   }
   showUsers(): void {
@@ -44,6 +47,6 @@ export class HeaderComponent implements OnInit{
   }
   showProducts(): void {
     this.showing.emit("products");
-  }
+  }*/
 
 }

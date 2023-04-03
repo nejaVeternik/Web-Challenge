@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
+import { ProductsService } from '../services/products.service';
 
 interface Product {
   title: string;
   price: number;
   brand: string;
 }
-
 
 @Component({
   selector: 'app-products',
@@ -18,12 +18,14 @@ export class ProductsComponent implements OnInit{
   products: any[] = [];
   categories: string[] = [];
 
-  constructor(private httpService: HttpService) { }
+  constructor(private ProductsService: ProductsService) {
+    //this.products = this.ProductsService.allProducts;
+  }
 
   ngOnInit(): void {
 
-    //
-    this.httpService.getProductList().subscribe(data => {
+    //Get all products
+    this.ProductsService.getProductList().subscribe(data => {
       this.products = data['products'];
     });
 

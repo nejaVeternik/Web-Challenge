@@ -10,9 +10,23 @@ import { DataViewModule } from 'primeng/dataview';
 import { HeaderComponent } from './header/header.component';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
+import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartsComponent } from './carts/carts.component';
+import { ChipsModule } from 'primeng/chips';
+import { CommonModule } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { PanelModule } from 'primeng/panel';
+import { DividerModule } from 'primeng/divider';
+import { RatingModule } from 'primeng/rating';
+import { GalleriaModule } from 'primeng/galleria';
+
 
 @NgModule({
-    declarations: [AppComponent, ProductsComponent, HeaderComponent],
+    declarations: [AppComponent, ProductsComponent, HeaderComponent, UsersComponent, UserDetailComponent, ProductDetailComponent, CartsComponent],
     imports: [
         BrowserModule, 
         BrowserAnimationsModule,
@@ -21,7 +35,16 @@ import { MenubarModule } from 'primeng/menubar';
         ButtonModule,
         HttpClientModule,
         MenuModule,
-        MenubarModule
+        MenubarModule,
+        AppRoutingModule,
+        RatingModule,
+        ChipsModule,
+        CommonModule,
+        InputTextModule,
+        CardModule,
+        DividerModule,
+        PanelModule,
+        GalleriaModule
         ],
     bootstrap: [AppComponent]
 })
