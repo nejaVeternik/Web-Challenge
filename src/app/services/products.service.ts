@@ -49,13 +49,13 @@ export class ProductsService {
     return this.http.post('https://dummyjson.com/products/add', postData, httpOptions)
   }
 
-  updateProduct(postData: any) {
+  updateProduct(postData: any, id: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post('https://dummyjson.com/products/add', postData, httpOptions)
+    return this.http.put(`https://dummyjson.com/products/${id}`, postData, httpOptions)
   }
 
   deleteProduct(product: string) {

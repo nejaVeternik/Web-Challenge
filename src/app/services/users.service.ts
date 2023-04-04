@@ -41,4 +41,13 @@ export class UsersService {
     };
     return this.http.post('https://dummyjson.com/users/add', postData, httpOptions)
   }
+
+  updateUser(postData: any, id: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.put(`https://dummyjson.com/users/${id}`, postData, httpOptions)
+  }
 }

@@ -1,11 +1,11 @@
 <p-card>
-    <div class=" col-12 flex card-container align-items-center justify-content-center">
+    <div *ngIf="!editing" class=" col-12 flex card-container align-items-center justify-content-center">
         <div class="card flex">
             <img class="shadow-2 m-5" [src]=user.image [alt]="user.firstName" />
             <div class="block">
                 <div class="flex justify-content-between">
                     <h1>{{ user.username }}</h1> 
-                    <button pButton pRipple label="Edit" icon="pi pi-pencil" class="relative left-50 p-button-text align-self-center h-3rem"></button>
+                    <button pButton pRipple label="Edit" (click)="edit()" icon="pi pi-pencil" class="relative left-50 p-button-text align-self-center h-3rem"></button>
                 </div>
                 <p class="font-semibold">{{ user.firstName + " " + user.lastName }}</p>
                 <i class="pi pi-envelope"></i>
@@ -19,5 +19,29 @@
             </div>
         </div>  
     </div>
+
+    <p-messages *ngIf="messageShowing" [(value)]="message"></p-messages>
+
+    <div *ngIf="editing" class=" col-12 flex card-container align-items-center justify-content-center">
+        <div class="card flex">
+            <img class="shadow-2 m-5" [src]=user.image [alt]="user.firstName" />
+            <div class="block">
+                <div class="flex justify-content-between m-3">
+                    <input pInputText [(ngModel)]="username" placeholder="Username" /> 
+                    <button pButton pRipple label="Confirm" (click)="confirm()" icon="pi pi-check" class="relative left-50 p-button-text align-self-center h-3rem"></button>
+                </div>
+                <p class="font-semibold">{{ user.firstName + " " + user.lastName }}</p>
+                <i class="pi pi-envelope"></i>
+                <span class="font-normal">{{ " " + user.email }}</span> 
+                <p></p>
+                <i class="pi pi-phone"></i>
+                <span class="font-normal">{{ " " + user.phone }}</span>
+                <p></p>
+                <i class="pi pi-home"></i>
+                <span class="font-normal">{{ " " + address.address + ", " + address.postalCode + " " + address.city}}</span>
+            </div>
+        </div>  
+    </div>
+
 </p-card>
 

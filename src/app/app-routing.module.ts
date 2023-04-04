@@ -10,6 +10,7 @@ import { AddProductComponent} from './add-product/add-product.component';
 import { AddUserComponent} from './add-user/add-user.component';
 
 const routes: Routes = [
+  { path: '', component: ProductsComponent},
   { path: 'products', component: ProductsComponent },
   { path: 'users', component: UsersComponent},
   { path: 'carts', component: CartsComponent},

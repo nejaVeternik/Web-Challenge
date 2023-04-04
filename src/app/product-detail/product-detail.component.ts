@@ -14,6 +14,11 @@ export class ProductDetailComponent implements OnInit{
   rating: number = 0;
   images: string[] = [];
   currentImage: string = '';
+  title: string = '';
+  description: string = '';
+  editing: boolean = false;
+  message: any = {};
+  messageShowing: boolean = false;
 
   responsiveOptions: any[] = [
     {
@@ -32,6 +37,26 @@ export class ProductDetailComponent implements OnInit{
 
   setCurrentImage(image: string) {
     this.currentImage = image;
+  }
+
+  edit() {
+    this.editing = true;
+    this.messageShowing = false;
+  }
+
+  confirm() {
+    this.editing = false;
+    const data = {
+      title: this.title,
+      description: this.description
+    }
+
+    this.ProductsService.updateProduct(data, this.productId).subscribe((data: any) => {
+      console.log(data);
+    });  
+
+    this.messageShowing = true;
+    this.message = [{ severity: 'success', summary: 'PUT request for updating sent successfuly'}];
   }
 
   constructor(private route: ActivatedRoute, private ProductsService: ProductsService) { }
