@@ -1,3 +1,20 @@
+<div class="card m-3 flex justify-content-center">
+    <div class="card-container">
+        <div class="block">
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText [(ngModel)]="searchQuery" placeholder="Search users" (input)="search()"/>
+                <p-dropdown class="m-2" [options]="genders" [(ngModel)]="selectedGender" (onChange)="refresh($event)" placeholder="Filter by gender" optionLabel="gender"></p-dropdown>
+            </span>
+            
+        </div>
+        
+        <div class="card flex justify-content-center">
+            
+        </div>
+    </div>    
+</div>
+
 <div class="card">
     <p-dataView #dv [value]="users" [rows]="12" [paginator]="true" paginatorPosition="top">
         <ng-template let-user pTemplate="listItem">

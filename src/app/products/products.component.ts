@@ -2,16 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { ProductsService } from '../services/products.service';
 
-interface Product {
-  title: string;
-  price: number;
-  brand: string;
-}
-
-interface Category {
-  name: string;
-}
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -30,14 +20,14 @@ export class ProductsComponent implements OnInit{
   }
 
   search() {
-    this.ProductsService.searchProducts(this.searchQuery).subscribe((data: any) =>{
+    this.ProductsService.searchProducts(this.searchQuery).subscribe((data: any) => {
       this.filtered = data['products'];
       console.log(this.selectedCategory);
     });
   }
 
   refresh(event: any) {
-    this.ProductsService.getProductsOfCategory(this.selectedCategory).subscribe((data: any) =>{
+    this.ProductsService.getProductsOfCategory(this.selectedCategory).subscribe((data: any) => {
       this.filtered = data['products'];
     });
   }
@@ -51,7 +41,7 @@ export class ProductsComponent implements OnInit{
 
     this.ProductsService.getCategories().subscribe((data: any) => {
       this.categories = data;
-    })
+    });
 
     /*this.ProductsService.LimitAndSkipProducts('200', '', '').subscribe(data => {
       console.log(data);

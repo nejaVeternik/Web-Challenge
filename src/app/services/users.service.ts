@@ -22,4 +22,14 @@ export class UsersService {
     const url = `https://dummyjson.com/users?limit=${limit}&skip=${skip}&select=${select}`;
     return this.http.get(url);
   }
+
+  searchUsers(searchQuery: string) {
+    const url = `https://dummyjson.com/users/search?q=${searchQuery}`;
+    return this.http.get(url);
+  }
+
+  filterUsers(gender: any) {
+    const url = `https://dummyjson.com/users/filter?key=gender&value=${gender.gender}`;
+    return this.http.get(url);
+  }
 }
