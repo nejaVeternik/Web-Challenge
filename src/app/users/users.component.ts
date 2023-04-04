@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit{
   constructor(private UsersService: UsersService) { }
 
   ngOnInit(): void {
-    this.UsersService.getUsersList().subscribe(data => {
+    this.UsersService.limitAndSkipUsers('200', '', '').subscribe((data: any) => {
       this.users = data['users'];
       console.log(this.users[0]);
     });

@@ -17,4 +17,11 @@ export class CartsService {
     const url = `https://dummyjson.com/carts/${cart}`;
     return this.http.get(url);
   }
+
+  getCartOfUser(cart: string) {
+    const url = `https://dummyjson.com/carts/user/${cart}`;
+    return this.http.get(url);
+  }
+
+
 }

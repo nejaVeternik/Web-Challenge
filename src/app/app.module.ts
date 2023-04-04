@@ -26,6 +26,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OrderListModule } from 'primeng/orderlist';
 import { TableModule } from 'primeng/table';
+import { ListboxModule } from 'primeng/listbox';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { TableModule } from 'primeng/table';
         GalleriaModule,
         DragDropModule,
         OrderListModule,
-        TableModule
+        TableModule,
+        ListboxModule
         ],
     bootstrap: [AppComponent]
 })

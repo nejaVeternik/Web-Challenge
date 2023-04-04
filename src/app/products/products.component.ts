@@ -24,10 +24,15 @@ export class ProductsComponent implements OnInit{
 
   ngOnInit(): void {
 
-    //Get all products
-    this.ProductsService.getProductList().subscribe(data => {
+    //Get all products 
+    this.ProductsService.LimitAndSkipProducts('100', '', '').subscribe((data: any) => {
       this.products = data['products'];
     });
+
+    /*this.ProductsService.LimitAndSkipProducts('200', '', '').subscribe(data => {
+      console.log(data);
+      this.products = data['products'];
+    })*/
 
     /*this.httpService.getProduct('2').subscribe(data => {
       console.log(data);

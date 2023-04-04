@@ -17,4 +17,9 @@ export class UsersService {
     const url = `https://dummyjson.com/users/${user}`;
     return this.http.get(url);
   }
+
+  limitAndSkipUsers(limit: string, skip: string, select: string) {
+    const url = `https://dummyjson.com/users?limit=${limit}&skip=${skip}&select=${select}`;
+    return this.http.get(url);
+  }
 }

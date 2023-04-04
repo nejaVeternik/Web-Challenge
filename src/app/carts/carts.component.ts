@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CartsService } from '../services/carts.service';
 import { UsersService } from '../services/users.service';
 
+interface Cart {
+  id: string,
+  items: []
+}
+
+interface User {
+  id: string
+}
+
 @Component({
   selector: 'app-carts',
   templateUrl: './carts.component.html',
@@ -10,12 +19,13 @@ import { UsersService } from '../services/users.service';
 export class CartsComponent implements OnInit{
 
   users: any[] = [];
-  carts: any[] = [];
+  carts: Cart[] = [];
   userSelected: object = {};
   selectedCart: any = {};
   displaying: boolean = false;
   cartData: any[] = [];
   cartItems: any[] = [];
+  selected: User = {id: ''};
 
   cols = [
     { field: 'name', header: 'Product Name' },
@@ -27,7 +37,7 @@ export class CartsComponent implements OnInit{
 
   ngOnInit(): void {
     this.UsersService.getUsersList().subscribe(data => {
-      this.users = data['users'];
+      this.users = data['users'].slice(0, 20); //Limit the list to 20 because we get only 20 carts
     });
 
     this.CartsService.getCarts().subscribe(data => {
@@ -51,4 +61,10 @@ export class CartsComponent implements OnInit{
     this.cartItems = this.selectedCart.products;
 
   }
+
+  getCart(id: string): any {
+    const c = this.carts.find(c => c.id === id);
+    return c ? c : ' ';
+  }
+
 }
