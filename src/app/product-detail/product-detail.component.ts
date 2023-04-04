@@ -59,6 +59,16 @@ export class ProductDetailComponent implements OnInit{
     this.message = [{ severity: 'success', summary: 'PUT request for updating sent successfuly'}];
   }
 
+  remove() {
+    this.ProductsService.deleteProduct(this.productId).subscribe((data: any) => {
+      console.log(data);
+    });   
+
+    this.messageShowing = true;
+    this.message = [{ severity: 'error', summary: 'DELETE request for deleting sent successfuly'}];
+  }
+  
+
   constructor(private route: ActivatedRoute, private ProductsService: ProductsService) { }
 
   ngOnInit(): void {

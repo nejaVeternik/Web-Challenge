@@ -23,10 +23,7 @@
                 </div>
             </div>
         </div>  
-        
     </div>
-
-    <p-messages *ngIf="messageShowing" [(value)]="message"></p-messages>
 
     <div *ngIf="editing" class=" col-12 flex card-container align-items-center justify-content-center gap-3">
         <div class="card flex flex-row">
@@ -55,6 +52,7 @@
         </div>
     </div>
 
-
+    <button pButton pRipple label="Remove" (click)="remove()" icon="pi pi-times" class="relative left-50 p-button-text align-self-center p-button-danger"></button>
+    <p-messages *ngIf="messageShowing" [(value)]="message"></p-messages>
 </p-card>
 

@@ -50,4 +50,13 @@ export class UsersService {
     };
     return this.http.put(`https://dummyjson.com/users/${id}`, postData, httpOptions)
   }
+
+  removeUser(id: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.delete(`https://dummyjson.com/users/${id}`, httpOptions)
+  }
 }

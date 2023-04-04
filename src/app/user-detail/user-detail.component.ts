@@ -28,9 +28,9 @@ export class UserDetailComponent implements OnInit{
 
   confirm() {
     this.editing = false;
-      const data = {
+    const data = {
       username: this.username
-  }
+    }
 
     this.UsersService.updateUser(data, this.userId).subscribe((data: any) => {
       console.log(data);
@@ -40,6 +40,14 @@ export class UserDetailComponent implements OnInit{
     this.message = [{ severity: 'success', summary: 'PUT request for updating sent successfuly'}];
   }
 
+  remove() {
+    this.UsersService.removeUser(this.userId).subscribe((data: any) => {
+      console.log(data);
+    });   
+
+    this.messageShowing = true;
+    this.message = [{ severity: 'error', summary: 'DELETE request for deleting sent successfuly'}];
+  }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.paramMap.get('id');
