@@ -23,12 +23,13 @@
             <ng-template pTemplate="body" let-item let-i="rowIndex">
             <tr>
                 <td>{{ item.title }}</td>
-                <td>{{ item.price | currency }}</td>
+                <td>{{ item.price + "€" }}</td>
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.subtotal | currency }}<button pButton type="button" label="Remove" icon="pi pi-times" ></button></td>
-
+            
             </tr>
             </ng-template>
+            
         </p-table>
     </div>
 

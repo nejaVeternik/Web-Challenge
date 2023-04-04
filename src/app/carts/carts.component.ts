@@ -4,7 +4,8 @@ import { UsersService } from '../services/users.service';
 
 interface Cart {
   id: string,
-  items: []
+  items: [],
+  total: string
 }
 
 interface User {
@@ -49,21 +50,25 @@ export class CartsComponent implements OnInit{
     this.userSelected = event.value[0];
     this.displaying = true;
 
-    this.CartsService.getCart(event.value[0].id).subscribe(data => {
+    this.CartsService.getCart(event.value[0].id).subscribe((data: any) => {
       this.selectedCart = data;
       console.log(this.selectedCart);
     });
 
     this.cartData = [
-      { id: this.selectedCart.id, total: this.selectedCart.total, userId: this.selectedCart.userId }
+      { id: this.selectedCart.id, total: this.selectedCart.total, userId: this.selectedCart.id }
     ]
 
-    this.cartItems = this.selectedCart.products;
+    this.cartItems = this.selectedCart.items;
 
   }
 
   getCart(id: string): any {
+    /*this.CartsService.getCartOfUser(id).subscribe(data => {
+      return data;
+    });*/
     const c = this.carts.find(c => c.id === id);
+    this.selectedCart = c;
     return c ? c : ' ';
   }
 

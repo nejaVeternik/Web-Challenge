@@ -1,24 +1,49 @@
-<div class="card">
-    <p-dataView #dv [value]="products" [rows]="10" [paginator]="true" paginatorPosition="top">
+<div class="card flex justify-content-center p-3">
+    <div class="card m-3">
+        <div class="card-container">
+            <div class="block">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText [(ngModel)]="searchQuery" (input)="search()"/>   
+                </span>
+            </div>
+            <br>
+            <div class="block justify-content-center">
+                <p-listbox [options]="categories" [(ngModel)]="selectedCategory" (onClick)="refresh($event)" optionLabel="name" [listStyle]="{ 'max-height': '250px' }" [style]="{ width: '15rem' }">
+                    <ng-template let-category pTemplate="item">
+                        <div class="flex align-items-center gap-2">
+                            <div>{{ category | titlecase }}</div>
+                        </div>
+                    </ng-template>
+                </p-listbox>
+            </div>
+        </div>    
+    </div>
+    <p-dataView class="col-9" #dv [value]="filtered" [rows]="12" [paginator]="true" paginatorPosition="top">
         <ng-template let-product pTemplate="listItem">
-            <div class="col-6">
-                <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
-                    <a p-link [routerLink]="['/products', product.id]"><img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]=product.images[0] [alt]="product.title" /></a>
-                    <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
-                        <div class="flex flex-column align-items-center sm:align-items-start gap-3">
-                            <a p-link class="text-2xl font-bold text-900 link"  [routerLink]="['/products', product.id]">{{ product.title }}</a>
-                            <span class="">{{ product.description }}</span>
-                            <div class="flex align-items-center gap-3">
-                                <span class="flex align-items-center gap-2">
-                                    <i class="pi pi-tag"></i>
-                                    <span class="font-semibold">{{ product.category }}</span>
-                                </span>
+            <div class="card col-3">
+                <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-2">
+                    <div class="block">
+                        <div class="block">
+                            <a p-link [routerLink]="['/products', product.id]"><img class="xl:h-9rem xl:w-auto sm:w-16rem shadow-2 block  mx-auto border-round" [src]=product.images[0] [alt]="product.title" /></a>
+                        </div>
+                        <div class="block">
+                            <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start gap-1">
+                                <div class="flex flex-column align-items-center sm:align-items-start">
+                                    <p>{{ product.brand }}</p>
+                                    <a p-link class="text-xl font-bold text-900 link"  [routerLink]="['/products', product.id]">{{ product.title }}</a><p class="font-semibold text-xl relative bottom-0">{{ product.price }}€</p>
+                                    <span class="">{{ product.description }}</span> <br>
+                                    <div class="flex align-items-center gap-3">
+                                        <span class="flex align-items-center gap-2">
+                                            <i class="pi pi-tag"></i>
+                                            <span class="font-semibold">{{ product.category }}</span>
+                                        </span>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
-                            <span class="text-2xl font-semibold">{{ product.price + "€" }}</span>
-                        </div>
-                    </div>
+                    </div>   
                 </div>
             </div>
         </ng-template>

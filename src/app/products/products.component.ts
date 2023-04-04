@@ -8,6 +8,10 @@ interface Product {
   brand: string;
 }
 
+interface Category {
+  name: string;
+}
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -16,18 +20,38 @@ interface Product {
 export class ProductsComponent implements OnInit{
 
   products: any[] = [];
-  categories: string[] = [];
+  categories: any[] = [];
+  filtered: any[] = [];
+  searchQuery = " ";
+  selectedCategory: string = "";
 
   constructor(private ProductsService: ProductsService) {
     //this.products = this.ProductsService.allProducts;
+  }
+
+  search() {
+    this.ProductsService.searchProducts(this.searchQuery).subscribe((data: any) =>{
+      this.filtered = data['products'];
+      console.log(this.selectedCategory);
+    });
+  }
+
+  refresh(event: any) {
+    this.ProductsService.getProductsOfCategory(this.selectedCategory).subscribe((data: any) =>{
+      this.filtered = data['products'];
+    });
   }
 
   ngOnInit(): void {
 
     //Get all products 
     this.ProductsService.LimitAndSkipProducts('100', '', '').subscribe((data: any) => {
-      this.products = data['products'];
+      this.filtered = data['products'];
     });
+
+    this.ProductsService.getCategories().subscribe((data: any) => {
+      this.categories = data;
+    })
 
     /*this.ProductsService.LimitAndSkipProducts('200', '', '').subscribe(data => {
       console.log(data);

@@ -35,6 +35,11 @@ export class ProductsService {
     return this.http.get(url);
   }
 
+  getProductsOfCategory(category: string) {
+    const url = `https://dummyjson.com/products/category/${category}`;
+    return this.http.get(url);
+  }
+
   addProduct(postData: any) {
     const httpOptions = {
       headers: new HttpHeaders({

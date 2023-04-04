@@ -27,6 +27,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OrderListModule } from 'primeng/orderlist';
 import { TableModule } from 'primeng/table';
 import { ListboxModule } from 'primeng/listbox';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ListboxModule } from 'primeng/listbox';
         DragDropModule,
         OrderListModule,
         TableModule,
-        ListboxModule
+        ListboxModule,
+        DropdownModule
         ],
     bootstrap: [AppComponent]
 })
