@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -20,20 +21,31 @@ export class HeaderComponent implements OnInit{
       {
         label: "Products",
         icon: 'pi pi-tag',
-        routerLink: '/products',
-        //command: () => this.showProducts()
+        routerLink: '/products'
       },
       {
         label: "Users",
         icon: 'pi pi-user',
-        routerLink: '/users',
-        //command: () => this.showUsers()
+        routerLink: '/users'
       },
       {
         label: "Carts",
         icon: 'pi pi-shopping-cart',
-        routerLink: '/carts',
-        //command: () => this.showCarts()
+        routerLink: '/carts'
+      },
+      {
+        label: "Add new",
+        icon: 'pi pi-plus',
+        items: [
+          {
+            label: "Product",
+            routerLink: '/new-product'
+          },
+          {
+            label: "User",
+            routerLink: '/new-user'
+          }
+        ]
       }
     ]
   }

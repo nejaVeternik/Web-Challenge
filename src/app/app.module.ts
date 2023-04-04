@@ -28,10 +28,15 @@ import { OrderListModule } from 'primeng/orderlist';
 import { TableModule } from 'primeng/table';
 import { ListboxModule } from 'primeng/listbox';
 import { DropdownModule } from 'primeng/dropdown';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { MessagesModule } from 'primeng/messages';
 
 
 @NgModule({
-    declarations: [AppComponent, ProductsComponent, HeaderComponent, UsersComponent, UserDetailComponent, ProductDetailComponent, CartsComponent],
+    declarations: [AppComponent, ProductsComponent, HeaderComponent, UsersComponent, UserDetailComponent, ProductDetailComponent, CartsComponent, AddProductComponent, AddUserComponent],
     imports: [
         BrowserModule, 
         BrowserAnimationsModule,
@@ -54,7 +59,10 @@ import { DropdownModule } from 'primeng/dropdown';
         OrderListModule,
         TableModule,
         ListboxModule,
-        DropdownModule
+        DropdownModule,
+        CheckboxModule,
+        RadioButtonModule,
+        MessagesModule
         ],
     bootstrap: [AppComponent]
 })
