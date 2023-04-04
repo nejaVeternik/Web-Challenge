@@ -23,6 +23,9 @@ import { PanelModule } from 'primeng/panel';
 import { DividerModule } from 'primeng/divider';
 import { RatingModule } from 'primeng/rating';
 import { GalleriaModule } from 'primeng/galleria';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { OrderListModule } from 'primeng/orderlist';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { GalleriaModule } from 'primeng/galleria';
         CardModule,
         DividerModule,
         PanelModule,
-        GalleriaModule
+        GalleriaModule,
+        DragDropModule,
+        OrderListModule,
+        TableModule
         ],
     bootstrap: [AppComponent]
 })

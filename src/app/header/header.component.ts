@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit{
         //command: () => this.showUsers()
       },
       {
-        label: "Cart",
+        label: "Carts",
         icon: 'pi pi-shopping-cart',
         routerLink: '/carts',
         //command: () => this.showCarts()
