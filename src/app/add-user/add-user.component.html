@@ -1,1 +1,28 @@
-<p>add-user works!</p>
+<p-card>
+    <div class="card col-5 block md:flex-row c">
+        <p class="text-4xl font-bold m-5">Add new user</p>
+        <div class="p-inputgroup m-5">
+            <input pInputText [(ngModel)]="username" placeholder="Username" />
+        </div>
+        <div class="p-inputgroup m-5">
+            <input type="text" [(ngModel)]="firstName" pInputText placeholder="First name" />
+        </div>
+
+        <div class="p-inputgroup m-5">
+            <input type="text" [(ngModel)]="lastName" pInputText placeholder="Last name" />
+        </div>
+
+        <div class="p-inputgroup m-5">
+            <input type="text" [(ngModel)]="email" pInputText placeholder="Email" />
+        </div>
+        
+        <p-button class="m-5" label="Submit" (click)="submitFrom()"></p-button>
+    </div>
+
+</p-card>
+
+<p-messages [(value)]="message"></p-messages>
+
+
+
+

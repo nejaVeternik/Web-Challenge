@@ -32,4 +32,13 @@ export class UsersService {
     const url = `https://dummyjson.com/users/filter?key=gender&value=${gender.gender}`;
     return this.http.get(url);
   }
+
+  addUser(postData: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post('https://dummyjson.com/users/add', postData, httpOptions)
+  }
 }
