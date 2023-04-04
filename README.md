@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 # Web-Challenge
-=======
-# MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4. 
+This is a simple web applcation that displays products, users, and carts. Data used in application is from [DummyJSON](https://dummyjson.com/). GUI is made with [primeNG](https://primeng.org/) UI components and theme. 
 
 ## Development server
 
@@ -28,4 +28,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> master
+
