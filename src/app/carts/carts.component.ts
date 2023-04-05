@@ -23,10 +23,12 @@ export class CartsComponent implements OnInit{
   carts: Cart[] = [];
   userSelected: object = {};
   selectedCart: any = {};
-  displaying: boolean = false;
   cartData: any[] = [];
   cartItems: any[] = [];
   selected: User = {id: ''};
+  showing: boolean = false;
+  message: any = {};
+  messageShowing: boolean = false;
 
   cols = [
     { field: 'name', header: 'Product Name' },
@@ -46,23 +48,6 @@ export class CartsComponent implements OnInit{
     });
   }
 
-  selectedUser(event: any) {
-    this.userSelected = event.value[0];
-    this.displaying = true;
-
-    this.CartsService.getCart(event.value[0].id).subscribe((data: any) => {
-      this.selectedCart = data;
-      console.log(this.selectedCart);
-    });
-
-    this.cartData = [
-      { id: this.selectedCart.id, total: this.selectedCart.total, userId: this.selectedCart.id }
-    ]
-
-    this.cartItems = this.selectedCart.items;
-
-  }
-
   getCart(id: string): any {
     /*this.CartsService.getCartOfUser(id).subscribe(data => {
       return data;
@@ -70,6 +55,19 @@ export class CartsComponent implements OnInit{
     const c = this.carts.find(c => c.id === id);
     this.selectedCart = c;
     return c ? c : ' ';
+  }
+
+  remove() {
+    this.CartsService.updateCart(this.selectedCart.id).subscribe(data => {
+      console.log(data);
+    });
+    this.message = [{ severity: 'error', summary: 'DELETE request for deleting sent successfuly'}];
+    this.messageShowing = true;
+  }
+
+  change() {
+    this.showing = true;
+    this.messageShowing = false;
   }
 
 }

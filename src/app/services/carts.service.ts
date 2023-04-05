@@ -23,5 +23,13 @@ export class CartsService {
     return this.http.get(url);
   }
 
+  updateCart(cart: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.put(`https://dummyjson.com/carts/${cart}`, httpOptions)
+  }
 
 }

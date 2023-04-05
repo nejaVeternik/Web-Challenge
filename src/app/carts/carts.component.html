@@ -1,7 +1,6 @@
 <div class="card flex justify-content-start m-5">
-
     <div class="card flex justify-content-center m-5">
-        <p-listbox [options]="users" [(ngModel)]="selected" optionLabel="name" [listStyle]="{ 'max-height': '250px' }" [style]="{ width: '15rem' }">
+        <p-listbox [options]="users" [(ngModel)]="selected" optionLabel="name" (onChange)="change()" [listStyle]="{ 'max-height': '250px' }" [style]="{ width: '15rem' }">
             <ng-template let-user pTemplate="user">
                 <div class="flex align-items-center gap-2">
                     {{user.username}}
@@ -9,8 +8,12 @@
             </ng-template>
         </p-listbox>
     </div>
-   
-    <div class="card flex m-5">
+
+    <div *ngIf="!showing">
+        <p class="m-5 text-2xl">Pick an user</p>
+    </div>
+    
+    <div *ngIf="showing" class="card flex m-5">
         <p-table [value]="getCart(selected.id).products" [columns]="cols">
             <ng-template pTemplate="header">
             <tr>
@@ -25,17 +28,13 @@
                 <td>{{ item.title }}</td>
                 <td>{{ item.price + "€" }}</td>
                 <td>{{ item.quantity }}</td>
-                <td>{{ item.subtotal | currency }}<button pButton type="button" label="Remove" icon="pi pi-times" ></button></td>
-            
+                <td>{{ item.subtotal | currency }}<button pButton type="button" label="Remove" icon="pi pi-times" (click)="remove()" ></button></td>
             </tr>
             </ng-template>
-            
+            <ng-template pTemplate="footer">
+                <button pButton type="button" label="Remove" icon="pi pi-times" (click)="remove()" ></button>
+            </ng-template>
         </p-table>
     </div>
-
-    <div>
-
-    </div>
-
-
 </div>
+<p-messages *ngIf="messageShowing" [(value)]="message"></p-messages>
